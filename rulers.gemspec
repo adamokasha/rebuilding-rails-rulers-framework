@@ -28,4 +28,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "webrick"
   spec.add_dependency "rack-test"
   spec.add_dependency "minitest"
+  spec.add_dependency "multi_json"
 end

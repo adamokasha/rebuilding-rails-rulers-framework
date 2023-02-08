@@ -4,6 +4,7 @@ PATH
     rulers (0.0.3)
       erubis
       minitest
+      multi_json
       rack (~> 2.2)
       rack-test
       webrick
@@ -13,6 +14,7 @@ GEM
   specs:
     erubis (2.7.0)
     minitest (5.17.0)
+    multi_json (1.15.0)
     rack (2.2.6.2)
     rack-test (2.0.2)
       rack (>= 1.3)
