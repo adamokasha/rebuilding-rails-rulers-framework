@@ -21,17 +21,21 @@ module Rulers
         return [302, {"Location" => "/quotes/a_quote"}, []]
       end
 
-      klass, act = get_controller_and_action(env)
-      controller = klass.new(env)
-
       begin
+        klass, act = get_controller_and_action(env)
+        controller = klass.new(env)
         text = controller.send(act)
+        r = controller.get_response
+
+
+        return [r.status, r.headers, [r.body].flatten] if r
+        controller.render_response(act) # automatically render view if no response returned
+        r = controller.get_response
+        [r.status, r.headers, [r.body].flatten]
       rescue => e
         puts e
         return [500, {'Content-Type' => 'text/html'}, ["Internal server error."]]
       end
-
-      [200, {'Content-Type' => 'text/html'}, [text]]
     end
   end
 end
