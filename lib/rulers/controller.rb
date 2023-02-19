@@ -1,5 +1,6 @@
 require "erubis"
 require "rulers/file_model"
+require "rulers/sqlite_model"
 
 module Rulers
   class Controller
